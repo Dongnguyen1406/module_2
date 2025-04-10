@@ -29,6 +29,14 @@ public class TinhTongCacSoTheoDuongCheo {
                 matrix[i][j] = sc.nextInt();
             }
         }
+
+        System.out.println("Ma trận sau khi in: ");
+        for (int i = 0; i < matrix.length; i++){
+            for (int j = 0; j < matrix[i].length; j++){
+                System.out.print(matrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
         
         totalDiagonal(matrix, sc);
     }
