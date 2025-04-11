@@ -36,9 +36,13 @@ public class Student {
     public void setAge(int age){
         this.age = age;
     }
-    
-    public String toString(){
-        return "ID: " + getId() + "\n" + "Name: " + getName() + "\n" +  "Age: " + getAge();
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                '}';
     }
-   
 }

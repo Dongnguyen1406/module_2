@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         Product product = new Product();
         Scanner sc = new Scanner(System.in);
-        
+        ProductManager productManager = new ProductManager();
         while(true){
             System.out.println("----- Quản lý sản phẩm-----");
             System.out.println("1. Hiển thị sản phẩm");
@@ -23,16 +23,20 @@ public class Main {
             }
             switch (number){
                 case 1:
-                    System.out.println("hiển thị");
+                    System.out.println("---Danh sách sản phẩm----");
+                    productManager.display();
                     break;
                 case 2:
-                    System.out.println("Thêm");
+                    System.out.println("---Thêm sản phẩm----");
+                    productManager.add();
                     break;
                 case 3:
-                    System.out.println("Xóa");
+                    System.out.println("---Xóa sản phẩm----");
+                    productManager.delete();
                     break;
                 case 4:
-                    System.out.println("Sửa");
+                    System.out.println("---Sửa sản phẩm----");
+                    productManager.edit();
                     break;
                 default:
                     System.out.println("Vui lòng chọn từ 1 - 5");

@@ -37,7 +37,6 @@ public class Main {
                 case 2:
                     System.out.println("--- Thêm mới sinh viên ---");
                     studentManager.add();
-                  System.out.println("Đã thêm sinh viên thành công"); 
 //                    sc.nextLine();
 //                    String idInput = "";
 //                    while (idInput.equals("")) {
@@ -93,7 +92,6 @@ public class Main {
 //                        }
 //                    }
                     studentManager.delete();
-                    System.out.println("Đã xóa sinh viên thành công");
                     break;
                 case 4:
                     System.out.println("--- Sửa sinh viên ---");
@@ -145,7 +143,6 @@ public class Main {
 //                        }
 //                    }
                     studentManager.edit();
-                    System.out.println("sửa xóa sinh viên thành công");
                     break;
                 case 5:
                     System.out.println("-----Search-----");
