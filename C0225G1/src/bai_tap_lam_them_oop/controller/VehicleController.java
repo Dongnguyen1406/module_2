@@ -3,6 +3,7 @@ package controller;
 import entity.Car;
 import entity.Motobike;
 import entity.Truck;
+import repository.CarRepository;
 import repository.VehicleRepository;
 import service.CarService;
 import service.MotobikeService;
@@ -18,6 +19,7 @@ public class VehicleController {
     static CarService carService = new CarService();
     static MotobikeService motobikeService = new MotobikeService();
     static VehicleRepository vehicleRepository = new VehicleRepository();
+    static CarRepository carRepository = new CarRepository();
     public static void displayVehicle(){
         boolean flag = true;
         do {
@@ -89,12 +91,13 @@ public class VehicleController {
     }
 
     public static void deleteVehicle(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Nhập biển số muốn xóa: ");
-        String licensePlate = sc.nextLine();
-        
-        
-        vehicleRepository.deleteVehicleByControlPlate(licensePlate);
+        String plateToDelete = CarView.inputLicensePlateForDelete();
+
+        if (CarView.confirmDelete()) {
+            carRepository.deleteByControlPlateCar(plateToDelete);
+        } else {
+            System.out.println("Hủy thao tác xóa.");
+        }
     }
     
 }

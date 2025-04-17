@@ -40,7 +40,17 @@ public class CarView {
         Car car = new Car(licensePlate, manufacturerName, yearOfManufacture, owner, vehicleType, numberOfSeats);
         return car;
     }
-    
-    
+
+    public static String inputLicensePlateForDelete() {
+        System.out.println("Nhập biển kiểm soát xe bạn muốn xóa:");
+        return sc.nextLine();
+    }
+
+    public static boolean confirmDelete() {
+        System.out.println("Bạn có muốn xóa hay không? (CÓ/KHÔNG)");
+        String answer = sc.nextLine();
+        return answer.equalsIgnoreCase("CÓ");
+    }
+
 }
 //vehicleType, numberOfSeats

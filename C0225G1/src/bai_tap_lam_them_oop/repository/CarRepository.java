@@ -33,22 +33,17 @@ public class CarRepository implements ICarRepository {
 
     @Override
     public void deleteByControlPlateCar(String licensePlate) {
-        Scanner sc = new Scanner(System.in);
         for (int i = 0; i < cars.length; i++) {
             if (cars[i] != null && cars[i].getLicensePlate().equals(licensePlate)) {
-                System.out.println("Bạn có muốn xóa hay không? (CÓ/KHÔNG)");
-                String anwser = sc.nextLine();
-                if (anwser.equalsIgnoreCase("CÓ")) {
-                    // Dịch chuyển phần tử phía sau lên
-                    for (int j = i; j < cars.length - 1; j++) {
-                        cars[j] = cars[j + 1];
-                    }
-                    // Gán phần tử cuối cùng là null
-                    cars[cars.length - 1] = null;
-                    System.out.println("Đã xóa thành công!");
+                // Xóa phần tử, dời các phần tử sau lên
+                for (int j = i; j < cars.length - 1; j++) {
+                    cars[j] = cars[j + 1];
                 }
+                cars[cars.length - 1] = null;
+                System.out.println("Đã xóa thành công!");
                 break;
             }
         }
     }
+
 }
