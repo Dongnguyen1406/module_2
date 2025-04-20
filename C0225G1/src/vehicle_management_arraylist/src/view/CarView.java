@@ -1,0 +1,33 @@
+package view;
+
+import entity.Car;
+import entity.Vehicle;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class CarView {
+    private static Scanner scanner = new Scanner(System.in);
+    public static void displayCar(ArrayList<Car> cars) {
+        if (cars.isEmpty()) {
+            System.out.println("Danh sách xe rỗng.");
+            return;
+        }
+
+        for (Car car : cars) {
+            System.out.println(car);
+        }
+    }
+
+    public static Car inputDataForCar() {
+        System.out.println("Chức năng thêm oto");
+        Vehicle vehicle = VehicleView.inputVehicle();
+        System.out.println("Nhập số chỗ ngồi: ");
+        int numbersOfSeats = Integer.parseInt(scanner.nextLine());
+        System.out.println("Nhập kiểu xe(Xe khách hay du lịch): ");
+        String carType = scanner.nextLine();
+        Car car = new Car(vehicle.getLicensePlate(), vehicle.getManufacturerName(), vehicle.getYearOfManufacture(), vehicle.getOwner(), numbersOfSeats, carType);
+        return car;
+    }
+
+}
