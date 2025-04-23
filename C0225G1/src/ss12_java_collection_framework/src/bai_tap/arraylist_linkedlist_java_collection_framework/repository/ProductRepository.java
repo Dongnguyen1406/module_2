@@ -42,6 +42,7 @@ public class ProductRepository implements IProductRepository {
                 break;
             }
         }
+        System.out.println("không tìm thấy sản phầm có id này!");
     }
 
     @Override

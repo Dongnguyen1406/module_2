@@ -1,0 +1,3 @@
+Xin chào!
+Đây là tệp văn bản để kiểm tra chức năng đọc ghi trong Java.
+Chúc bạn học tốt và thành công!

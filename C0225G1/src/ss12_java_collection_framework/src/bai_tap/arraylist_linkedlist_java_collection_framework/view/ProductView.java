@@ -38,6 +38,8 @@ public class ProductView {
     public static void deleteProduct(){
         System.out.println("Nhập id của sản phẩm muốn xóa");
         int id = Integer.parseInt(sc.nextLine());
+        
+        
 
         System.out.println("Bạn có chắc chắn xóa sản phẩm này không (Có/Không)?");
         String confirm = sc.nextLine().trim().toLowerCase();
