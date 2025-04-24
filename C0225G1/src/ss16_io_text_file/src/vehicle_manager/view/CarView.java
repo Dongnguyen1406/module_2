@@ -1,14 +1,15 @@
-package view;
+package vehicle_manager.view;
 
-import entity.Car;
-import entity.Vehicle;
+import vehicle_manager.entity.Car;
+import vehicle_manager.entity.Vehicle;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CarView {
     private static Scanner scanner = new Scanner(System.in);
-    public static void displayCar(ArrayList<Car> cars) {
+    public static void displayCar(List<Car> cars) {
         if (cars.isEmpty()) {
             System.out.println("Danh sách xe rỗng.");
             return;
@@ -29,5 +30,4 @@ public class CarView {
         Car car = new Car(vehicle.getLicensePlate(), vehicle.getManufacturerName(), vehicle.getYearOfManufacture(), vehicle.getOwner(), carType, numbersOfSeats);
         return car;
     }
-
 }

@@ -1,8 +1,9 @@
-package bai_tap.arraylist_linkedlist_java_collection_framework.view;
+package product_manager.view;
 
-import bai_tap.arraylist_linkedlist_java_collection_framework.entity.Product;
-import bai_tap.arraylist_linkedlist_java_collection_framework.service.IProductService;
-import bai_tap.arraylist_linkedlist_java_collection_framework.service.ProductService;
+import product_manager.entity.Product;
+import product_manager.repository.IProductRepository;
+import product_manager.service.IProductService;
+import product_manager.service.ProductService;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -12,7 +13,6 @@ import java.util.Scanner;
 public class ProductView {
     private static IProductService service = new ProductService();
     private static Scanner sc = new Scanner(System.in);
-
     public static void addProduct(){
         System.out.println("Nhập ID của sản phầm: ");
         int id = Integer.parseInt(sc.nextLine());
@@ -24,6 +24,17 @@ public class ProductView {
         service.addProduct(new Product(id, name, price));
     }
 
+//    public static void updateProduct(){
+//        System.out.println("Nhập id của sản phẩm muốn sửa: ");
+//        int id = Integer.parseInt(sc.nextLine());
+//        System.out.println("Tên mới: ");
+//        String name = sc.nextLine();
+//        System.out.println("Gía mới: ");
+//        Double price = Double.parseDouble(sc.nextLine());
+//
+//        service.updateProduct(id, new Product(id, name, price));
+//    }
+    
     public static void updateProduct(){
         System.out.println("Nhập id của sản phẩm muốn sửa: ");
         int id = Integer.parseInt(sc.nextLine());
@@ -31,31 +42,60 @@ public class ProductView {
         String name = sc.nextLine();
         System.out.println("Gía mới: ");
         Double price = Double.parseDouble(sc.nextLine());
-
-        service.updateProduct(id, new Product(id, name, price));
+        
+        boolean check = service.updateProduct(id, new Product(id, name, price));
+        if (check){
+            System.out.println("Sửa thành công!");
+        } else {
+            System.out.println("Không tìm thấy!");
+        }
+        
     }
-
+    
     public static void deleteProduct(){
-        System.out.println("Nhập id của sản phẩm muốn xóa");
+        System.out.println("Nhập id của sản phẩm muốn xóa: ");
         int id = Integer.parseInt(sc.nextLine());
-        
-        
-        
+        boolean check = service.deleteProduct(id);
         System.out.println("Bạn có chắc chắn xóa sản phẩm này không (Có/Không)?");
         String confirm = sc.nextLine().trim().toLowerCase();
-        
+
         if(confirm.equals("có")){
-            service.deleteProduct(id);
+            if (check){
+                System.out.println("xóa thành công!");
+            } else {
+                System.out.println("Không tìm thấy!");
+            }
         } else {
             System.out.println("Đã hủy xóa!");
         }
         
     }
 
+//    public static void deleteProduct(){
+//        System.out.println("Nhập id của sản phẩm muốn xóa");
+//        int id = Integer.parseInt(sc.nextLine());
+//
+//        
+//
+//        System.out.println("Bạn có chắc chắn xóa sản phẩm này không (Có/Không)?");
+//        String confirm = sc.nextLine().trim().toLowerCase();
+//
+//        if(confirm.equals("có")){
+//            service.deleteProduct(id);
+//        } else {
+//            System.out.println("Đã hủy xóa!");
+//        }
+//
+//    }
+
     public static void displayProducts() {
         List<Product> products = service.findAllProducts();
-        for (int i = 0; i < products.size(); i++) {
-            System.out.println(products.get(i));
+        if (products.isEmpty()){
+            System.out.println("không có sản phẩm nào để hiển thị.");
+        } else {
+            for (int i = 0; i < products.size(); i++) {
+                System.out.println(products.get(i));
+            }
         }
     }
 

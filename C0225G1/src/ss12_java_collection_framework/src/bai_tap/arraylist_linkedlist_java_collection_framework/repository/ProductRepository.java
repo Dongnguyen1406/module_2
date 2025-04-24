@@ -32,6 +32,8 @@ public class ProductRepository implements IProductRepository {
             }
         }
     }
+    
+    
 
     @Override
     public void deleteProduct(int id) {
@@ -39,10 +41,11 @@ public class ProductRepository implements IProductRepository {
         for (int i = 0; i < productList.size(); i++){
             if(productList.get(i).getId() == id){
                 productList.remove(i);
-                break;
+                System.out.println("Xóa thành công");
+                return;
             }
         }
-        System.out.println("không tìm thấy sản phầm có id này!");
+        System.out.println("Ko tìm thấy");
     }
 
     @Override

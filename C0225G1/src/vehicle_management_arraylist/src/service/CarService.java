@@ -16,7 +16,7 @@ public class CarService implements ICarService{
 
     @Override
     public void add(Car car) {
-        carRepository.add(car);
+        carRepository.addCar(car);
     }
 
     @Override

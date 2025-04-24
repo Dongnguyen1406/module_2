@@ -29,7 +29,7 @@ public class CarRepository implements ICarRepository {
     }
 
     @Override
-    public void deleteByControlPlateCar(String licensePlate) {
+    public void deleteByLicensePlateCar(String licensePlate) {
         for (int i = 0; i < cars.size(); i++) {
             if (cars.get(i) != null && cars.get(i).getLicensePlate().equals(licensePlate)) {
                 // Xóa phần tử, dời các phần tử sau lên
