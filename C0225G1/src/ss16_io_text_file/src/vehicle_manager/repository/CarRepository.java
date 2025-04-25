@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarRepository implements ICarRepository {
-    private static List<Car> cars = new ArrayList<>();
     private final String CAR_FILE = "src/vehicle_manager/data/car.csv";
     private final boolean APPEND = true;
     private final boolean NOT_APPEND = false;
@@ -29,6 +28,7 @@ public class CarRepository implements ICarRepository {
         for (int i = 0; i < stringList.size(); i++) {
             array = stringList.get(i).split(",");
             Car car = new Car(array[0], array[1], Integer.parseInt(array[2]), array[3], array[4], Integer.parseInt(array[5]));
+            cars.add(car);
         }
         return cars;
     }
@@ -38,7 +38,6 @@ public class CarRepository implements ICarRepository {
         List<String> stringList = new ArrayList<>();
         stringList.add(car.getInfoCarToFile());
         ReadAndWriteFile.writeFile(CAR_FILE, stringList, APPEND);
-        cars.add(car);
     }
 
     @Override

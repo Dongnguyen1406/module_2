@@ -9,4 +9,5 @@ public interface ICarRepository {
     List<Car> findAll();
     void addCar(Car car);
     boolean deleteByLicensePlateCar(String controlPlate);
+    
 }
