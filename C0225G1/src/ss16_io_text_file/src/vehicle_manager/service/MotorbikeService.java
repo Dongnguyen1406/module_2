@@ -5,11 +5,12 @@ import vehicle_manager.repository.IMotorbikeRepository;
 import vehicle_manager.repository.MotorbikeRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MotorbikeService implements IMotorbikeService{
     private IMotorbikeRepository motorbikeRepository = new MotorbikeRepository();
     @Override
-    public ArrayList<Motorbike> findAll() {
+    public List<Motorbike> findAll() {
         return motorbikeRepository.findAll();
     }
 
@@ -19,8 +20,8 @@ public class MotorbikeService implements IMotorbikeService{
     }
 
     @Override
-    public void deleteByLicensePlateMotor(String licensePlate) {
-        motorbikeRepository.deleteByLicensePlateMotor(licensePlate);
+    public boolean deleteByLicensePlateMotor(String licensePlate) {
+        return motorbikeRepository.deleteByLicensePlateMotor(licensePlate);
     }
 }
 

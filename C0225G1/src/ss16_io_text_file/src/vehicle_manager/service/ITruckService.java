@@ -3,9 +3,10 @@ package vehicle_manager.service;
 import vehicle_manager.entity.Truck;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface ITruckService {
-    ArrayList<Truck> findAll();
+    List<Truck> findAll();
     void add(Truck truck);
-    void deleteByLicensePlateTruck(String licensePlate);
+    boolean deleteByLicensePlateTruck(String licensePlate);
 }

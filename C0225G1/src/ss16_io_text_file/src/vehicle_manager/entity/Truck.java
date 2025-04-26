@@ -26,4 +26,9 @@ public class Truck extends Vehicle{
                 "loadCapacity=" + loadCapacity +
                 '}';
     }
+
+    public String getInfoTruckToFile(){
+        return super.getLicensePlate() + "," + super.getManufacturerName() + "," + super.getYearOfManufacture() + "," + super.getOwner() + "," + this.loadCapacity;
+    }
 }
+

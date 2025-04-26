@@ -26,4 +26,8 @@ public class Motorbike extends Vehicle{
                 "enginePower=" + enginePower +
                 '}';
     }
+
+    public String getInfoMotorbikeToFile(){
+        return super.getLicensePlate() + "," + super.getManufacturerName() + "," + super.getYearOfManufacture() + "," + super.getOwner() + "," + this.enginePower;
+    }
 }

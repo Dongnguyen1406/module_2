@@ -5,11 +5,12 @@ import vehicle_manager.repository.ITruckRepository;
 import vehicle_manager.repository.TruckRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TruckService implements ITruckService{
     private ITruckRepository truckRepository = new TruckRepository();
     @Override
-    public ArrayList<Truck> findAll() {
+    public List<Truck> findAll() {
         return truckRepository.findAll();
     }
 
@@ -19,8 +20,8 @@ public class TruckService implements ITruckService{
     }
 
     @Override
-    public void deleteByLicensePlateTruck(String licensePlate) {
-        truckRepository.deleteByLicensePlateTruck(licensePlate);
+    public boolean deleteByLicensePlateTruck(String licensePlate) {
+        return truckRepository.deleteByLicensePlateTruck(licensePlate);
     }
 }
 

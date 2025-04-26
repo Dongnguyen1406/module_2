@@ -37,7 +37,7 @@ public class VehicleController {
             switch (choose){
                 case 1:
                     System.out.println("Danh sách xe tải ");
-                    ArrayList<Truck> trucks = truckService.findAll();
+                    List<Truck> trucks = truckService.findAll();
                     TruckView.displayTruck(trucks);
                     break;
                 case 2:
@@ -47,7 +47,7 @@ public class VehicleController {
                     break;
                 case 3:
                     System.out.println("Danh sách xe máy ");
-                    ArrayList<Motorbike> motorbikes = motorbikeService.findAll();
+                    List<Motorbike> motorbikes = motorbikeService.findAll();
                     MotorbikeView.displayMotorbike(motorbikes);
                     break;
                 default:
@@ -79,7 +79,6 @@ public class VehicleController {
                     Car car = CarView.inputDataForCar();
                     carService.add(car);
                     System.out.println("Thêm xe oto mới thành công !");
-
                     break;
                 case 3:
                     System.out.println("Điền thông tin của xe máy để thêm mới ");
